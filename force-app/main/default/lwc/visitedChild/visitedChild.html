@@ -1,0 +1,38 @@
+<template>
+  <lightning-card variant="Narrow" title="Hello" icon-name="standard:account">
+    <div class="main">
+      <template
+        if:true={countries}
+        for:each={countries}
+        for:item="con"
+        for:index="index"
+      >
+        <div class="sub" key={con.name} data-id={con.name}>
+          <div><img src={con.image} alt="" /></div>
+          <div class="uls">
+            <ul>
+              <li>Country: {con.name}</li>
+              <li>Capital: {con.capital}</li>
+              <li>Capital: {con.population}</li>
+              <li>Capital: {con.president}</li>
+              <li>
+                <lightning-input
+                  type="checkbox"
+                  value={value}
+                  label="Visited"
+                  onchange={changeHandle}
+                ></lightning-input>
+              </li>
+            </ul>
+          </div>
+          <hr />
+        </div>
+      </template>
+      <lightning-button
+        variant="brand"
+        label="Submit"
+        onclick={handleClick}
+      ></lightning-button>
+    </div>
+  </lightning-card>
+</template>

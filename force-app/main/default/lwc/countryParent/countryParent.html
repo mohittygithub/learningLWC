@@ -1,0 +1,36 @@
+<template>
+  <div style="width: 600px">
+    <lightning-card
+      title="Parent Component"
+      icon-name="standard:lightning_component"
+      style="margin: 0 auto"
+    >
+      <div class="slds-grid slds-wrap">
+        <div
+          class="slds-col slds-large-size_8-of-12 slds-medium-size_8-of-12 slds-size_8-of-12"
+        >
+          <lightning-combobox
+            name="countries"
+            label="Countries"
+            value={value}
+            placeholder="Select Country"
+            options={options}
+            onchange={handleChange}
+            style="margin: 20px; font-weight: bold"
+          ></lightning-combobox>
+        </div>
+        <div
+          class="slds-col slds-large-size_4-of-12 slds-align_absolute-center"
+        >
+          <lightning-button
+            variant="brand"
+            label="Show"
+            onclick={handleClick}
+            style="padding-top: 25px"
+          ></lightning-button>
+        </div>
+      </div>
+      <c-country-child country-object={country}></c-country-child>
+    </lightning-card>
+  </div>
+</template>

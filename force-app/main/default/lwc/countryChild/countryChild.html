@@ -1,0 +1,41 @@
+<template>
+  <lightning-card
+    title="Child Component"
+    icon-name="standard:lightning_component"
+    class="slds-col slds-large-size_12-of-12"
+  >
+    <div class="slds-grid slds-wrap slds-large-size_12-of-12">
+      <div
+        class="slds-col slds-large-size_8-of-12 slds-p-all_medium slds-align_absolute-center"
+      >
+        <img
+          src={countryObject.image}
+          alt=""
+          style="max-height: 250px; max-width: 250px"
+        />
+      </div>
+      <div class="slds-col slds-large-size_4-of-12">
+        <table class="slds-table">
+          <tbody>
+            <tr>
+              <td>Country</td>
+              <td>{countryObject.name}</td>
+            </tr>
+            <tr>
+              <td>Capital</td>
+              <td>{countryObject.capital}</td>
+            </tr>
+            <tr>
+              <td>Population</td>
+              <td>{countryObject.population}</td>
+            </tr>
+            <tr>
+              <td>President</td>
+              <td>{countryObject.president}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </lightning-card>
+</template>
