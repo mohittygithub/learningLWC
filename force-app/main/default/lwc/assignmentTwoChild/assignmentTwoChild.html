@@ -1,0 +1,21 @@
+<template>
+  <lightning-card
+    variant="Narrow"
+    title="Child Component"
+    icon-name="utility:connected_apps"
+  >
+    <div class="slds-m-around--medium slds-grid slds-gutters">
+      <div class="slds-col slds-size_1-of-2">
+        <img src={image} />
+      </div>
+      <div class="slds-col slds-size_1-of-2 lis">
+        <u>
+          <li><span>Country : </span>{country}</li>
+          <li><span>Capital : </span>{capital}</li>
+          <li><span>population : </span>{population}</li>
+          <li><span>President : </span>{president}</li>
+        </u>
+      </div>
+    </div>
+  </lightning-card>
+</template>

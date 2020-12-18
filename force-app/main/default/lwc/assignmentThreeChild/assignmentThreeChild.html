@@ -1,0 +1,73 @@
+<template>
+  <lightning-card variant="Narrow">
+    <div class="main">
+      <div class="imgCol"><img src={india.image} alt="image" /></div>
+      <div class="dataCol">
+        <ul>
+          <li><span>Capital : </span>{india.capital}</li>
+          <li><span>Continent : </span>{india.continent}</li>
+          <li><span>Population : </span>{india.population}</li>
+          <li><span>President : </span>{india.president}</li>
+          <li>
+            <lightning-input
+              type="checkbox"
+              value="India"
+              variant="standard"
+              name="india"
+              label="visited"
+              onchange={handleChange}
+            ></lightning-input>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main">
+      <div class="imgCol"><img src={france.image} alt="image" /></div>
+      <div class="dataCol">
+        <ul>
+          <li><span>Capital : </span>{france.capital}</li>
+          <li><span>Continent : </span>{france.continent}</li>
+          <li><span>Population : </span>{france.population}</li>
+          <li><span>President : </span>{france.president}</li>
+          <li>
+            <lightning-input
+              type="checkbox"
+              value="France"
+              variant="standard"
+              name="france"
+              label="visited"
+              onchange={handleChange}
+            ></lightning-input>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main">
+      <div class="imgCol"><img src={usa.image} alt="image" /></div>
+      <div class="dataCol">
+        <ul>
+          <li><span>Capital : </span>{usa.capital}</li>
+          <li><span>Continent : </span>{usa.continent}</li>
+          <li><span>Population : </span>{usa.population}</li>
+          <li><span>President : </span>{usa.president}</li>
+          <li>
+            <lightning-input
+              type="checkbox"
+              value="USA"
+              variant="standard"
+              name="usa"
+              label="visited"
+              onchange={handleChange}
+            ></lightning-input>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <lightning-button
+      class="submitButton"
+      variant="brand"
+      label="Submit"
+      onclick={handleClick}
+    ></lightning-button>
+  </lightning-card>
+</template>

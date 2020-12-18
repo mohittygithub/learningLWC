@@ -1,0 +1,22 @@
+<template>
+  <div style="height: 300px; width: 300px">
+    <lightning-card
+      variant="Narrow"
+      title="Welcome to LWC Training"
+      icon-name="standard:account"
+    >
+      <h1 class="slds-p-around_small" style="font-size: 2em">
+        Hello <span>{name}</span>
+      </h1>
+      <lightning-input
+        type="text"
+        class="slds-p-around_small"
+        variant="standard"
+        label="Enter name"
+        name="name"
+        placeholder="type here..."
+        onchange={handleChanges}
+      ></lightning-input>
+    </lightning-card>
+  </div>
+</template>

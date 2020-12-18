@@ -1,0 +1,70 @@
+<template>
+  <lightning-card
+    variant="Narrow"
+    title="Calculator"
+    icon-name="standard:apps"
+    class="slds-p-around_small"
+  >
+    <div class="slds-p-around_small">
+      <lightning-input
+        data-id="1"
+        type="number"
+        value={num1}
+        variant="standard"
+        name="num1"
+        label="Num 1"
+        step="any"
+        placeholder="type here..."
+      ></lightning-input>
+      <lightning-input
+        data-id="2"
+        type="number"
+        variant="standard"
+        value={num2}
+        name="num2"
+        label="Num 2"
+        step="any"
+        placeholder="type here..."
+      ></lightning-input>
+
+      <div class="slds-m-around_small">
+        <lightning-button
+          class="slds-p-around_small"
+          variant="brand"
+          label="Add"
+          icon-name="utility:add"
+          onclick={handleClick}
+        ></lightning-button>
+        <lightning-button
+          class="slds-p-around_small"
+          variant="brand"
+          label="Substract"
+          icon-name="utility:dash"
+          onclick={handleClick}
+        ></lightning-button>
+        <lightning-button
+          class="slds-p-around_small"
+          variant="brand"
+          label="Multiply"
+          icon-name="utility:close"
+          onclick={handleClick}
+        ></lightning-button>
+        <lightning-button
+          class="slds-p-around_small"
+          variant="brand"
+          label="Divide"
+          icon-name="utility:magicwand"
+          onclick={handleClick}
+        ></lightning-button>
+        <lightning-button
+          class="slds-p-around_small"
+          variant="brand"
+          label="Reset"
+          icon-name="utility:refresh"
+          onclick={handleClick}
+        ></lightning-button>
+      </div>
+    </div>
+    <c-calculator-result result={total}></c-calculator-result>
+  </lightning-card>
+</template>

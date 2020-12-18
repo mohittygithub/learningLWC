@@ -1,0 +1,12 @@
+.sorted {
+  font-weight: bold;
+  background-color: cadetblue;
+  color: white;
+  text-align: center;
+}
+table th {
+  text-align: center;
+}
+table th:hover {
+  cursor: pointer;
+}

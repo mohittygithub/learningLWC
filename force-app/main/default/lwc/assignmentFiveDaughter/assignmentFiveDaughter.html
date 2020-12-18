@@ -1,0 +1,25 @@
+<template>
+  <div class="box">
+    <lightning-card
+      variant="Narrow"
+      title={daughtertitle}
+      icon-name="standard:contact"
+    >
+      <div class="slds-m-around_large">
+        <lightning-input
+          type="text"
+          variant="standard"
+          name="txtMessage"
+          label="Message"
+          placeholder="type here..."
+        ></lightning-input>
+        <lightning-button
+          variant="success"
+          label="Send"
+          onclick={handleClick}
+          class="slds-align_absolute-center slds-m-vertical_small"
+        ></lightning-button>
+      </div>
+    </lightning-card>
+  </div>
+</template>

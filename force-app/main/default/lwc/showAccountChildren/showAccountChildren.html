@@ -1,0 +1,27 @@
+<template>
+  <lightning-card
+    variant="Narrow"
+    title={objectApiName}
+    icon-name="standard:account"
+  >
+  </lightning-card>
+  <lightning-datatable
+    key-field="id"
+    data={getContacts.data}
+    show-row-number-column
+    row-number-offset={rowOffset}
+    hide-checkbox-column
+    columns={columnsList}
+    onrowaction={handleRowAction}
+    onclick={handleClick}
+  >
+  </lightning-datatable>
+
+  <!-- <lightning-record-form
+    record-id={recordId}
+    object-api-name={objectApiName}
+    layout-type="Full"
+    mode="view"
+  >
+  </lightning-record-form> -->
+</template>

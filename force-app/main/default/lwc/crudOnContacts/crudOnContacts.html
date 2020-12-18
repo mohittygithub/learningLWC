@@ -1,0 +1,220 @@
+<template>
+  <lightning-card
+    variant="Narrow"
+    title="Contacts"
+    icon-name="standard:contact"
+  >
+    <div slot="actions">
+      <lightning-input
+        type="text"
+        variant="label-hidden"
+        name="name"
+        label="search"
+        placeholder="search here..."
+        value={inputValue}
+        onchange={changeHandle}
+      ></lightning-input>
+    </div>
+
+    <lightning-button
+      variant="brand"
+      label="New"
+      title="New"
+      slot="actions"
+      data-toggle="modal"
+      data-target="#newContactModal"
+      onclick={handleClick}
+    ></lightning-button>
+
+    <lightning-button
+      variant="brand"
+      label="Edit"
+      title="Edit"
+      disabled={isSaveButtonActive}
+      slot="actions"
+      data-toggle="modal"
+      data-target="#newContactModal"
+      onclick={handleClick}
+    ></lightning-button>
+
+    <lightning-combobox
+      name="cities"
+      label="Cities"
+      options={cityObject}
+      value={cityValue}
+      onchange={changeHandle}
+      class="slds-var-m-around_large"
+    ></lightning-combobox>
+
+    <div slot="footer">
+      <template if:true={contacts}>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+          <thead>
+            <tr>
+              <th>
+                <lightning-input
+                  type="checkbox"
+                  variant="label-hidden"
+                  name="ids"
+                  value={Ids}
+                  onchange={handleClick}
+                  label="Ids"
+                  placeholder="type here..."
+                ></lightning-input>
+              </th>
+              <th onclick={sortHandle}>Name</th>
+              <th onclick={sortHandle}>Phone</th>
+              <th onclick={sortHandle}>Email</th>
+              <th onclick={sortHandle}>Department</th>
+              <th onclick={sortHandle}>Account Name</th>
+              <th onclick={sortHandle}>Account Type</th>
+              <th onclick={sortHandle}>Billing City</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template for:each={contacts} for:item="contact">
+              <tr key={contact.Id}>
+                <td>
+                  <lightning-input
+                    type="checkbox"
+                    variant="label-hidden"
+                    name="id"
+                    value={contact.Id}
+                    onchange={handleClick}
+                    label="Id"
+                    placeholder="type here..."
+                  ></lightning-input>
+                </td>
+                <td>{contact.Name}</td>
+                <td>{contact.Phone}</td>
+                <td>
+                  <lightning-formatted-email
+                    value={contact.Email}
+                    onclick={handleClick}
+                  ></lightning-formatted-email>
+                </td>
+                <td>{contact.Department}</td>
+                <td>{contact.Account.Name}</td>
+
+                <td>{contact.Account.Type}</td>
+                <td>{contact.Account.BillingCity}</td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </template>
+      <template if:false={contacts}> No Data </template>
+    </div>
+  </lightning-card>
+
+  <template if:true={isModalOpened}>
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="modal-heading-01"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <header class="slds-modal__header">
+          <button
+            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+            title="Close"
+          >
+            <svg
+              class="slds-button__icon slds-button__icon_large"
+              aria-hidden="true"
+            >
+              <use
+                xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"
+              ></use>
+            </svg>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+          <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">
+            New Contact
+          </h2>
+        </header>
+
+        <div
+          class="slds-modal__content slds-p-around_medium slds-form-element"
+          id="modal-content-id-1"
+        >
+          <lightning-input
+            type="text"
+            variant="standard"
+            data-id="firstname"
+            name="firstname"
+            label="First Name"
+            value={firstname}
+            onchange={changeHandle}
+            class="slds-form-element__control"
+            placeholder="enter your first name here ..."
+          ></lightning-input>
+          <lightning-input
+            type="text"
+            variant="standard"
+            data-id="lastname"
+            name="lastname"
+            label="Last Name"
+            required
+            value={lastname}
+            onchange={changeHandle}
+            class="slds-form-element__control"
+            placeholder="enter your last name here ..."
+          ></lightning-input>
+          <lightning-combobox
+            name="accounts"
+            label="Account"
+            data-id="accounts"
+            options={accountSelectedOptions}
+            value={accountSelectedValue}
+            onchange={changeHandle}
+            required
+            class="slds-form-element__control"
+          ></lightning-combobox>
+          <lightning-input
+            type="phone"
+            variant="standard"
+            data-id="phone"
+            name="phone"
+            label="Phone"
+            value={phone}
+            onchange={changeHandle}
+            class="slds-form-element__control"
+            placeholder="enter your phone/mobile no ..."
+          ></lightning-input>
+          <lightning-input
+            type="email"
+            variant="standard"
+            data-id="email"
+            name="email"
+            label="Email"
+            value={email}
+            onchange={changeHandle}
+            required
+            class="slds-form-element__control"
+            placeholder="enter your email here ..."
+          ></lightning-input>
+        </div>
+        <footer class="slds-modal__footer">
+          <lightning-button
+            class="slds-p-right_small"
+            variant="success"
+            label="Save"
+            title="Save"
+            onclick={handleClick}
+          ></lightning-button>
+          <lightning-button
+            variant="destructive"
+            label="Close"
+            title="Close"
+            onclick={handleClick}
+          ></lightning-button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+</template>

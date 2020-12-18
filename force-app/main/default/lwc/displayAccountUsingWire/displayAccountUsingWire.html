@@ -1,0 +1,54 @@
+<template>
+  <lightning-card
+    title="Displaying Accounts Data using @wire decorator in LWC"
+    icon-name="standard:account"
+  >
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+      <thead>
+        <tr class="slds-line-height_reset">
+          <th class="" scope="col">
+            <div class="slds-truncate" title="Name">Name</div>
+          </th>
+          <th class="" scope="col">
+            <div class="slds-truncate" title="Name">Account Number</div>
+          </th>
+          <th class="" scope="col">
+            <div class="slds-truncate" title="Name">Industry</div>
+          </th>
+          <th class="" scope="col">
+            <div class="slds-truncate" title="Name">Phone</div>
+          </th>
+          <th class="" scope="col">
+            <div class="slds-truncate" title="Name">Rating</div>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <template for:each={data} for:item="acc">
+          <tr key={acc.Id}>
+            <th scope="col">
+              <div>{acc.Name}</div>
+            </th>
+            <th scope="col">
+              <div>{acc.AccountNumber}</div>
+            </th>
+            <th scope="col">
+              <div>{acc.Industry}</div>
+            </th>
+            <th scope="col">
+              <div>
+                <lightning-formatted-phone
+                  value={acc.Phone}
+                ></lightning-formatted-phone>
+              </div>
+            </th>
+            <th scope="col">
+              <div>{acc.Rating}</div>
+            </th>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </lightning-card>
+</template>

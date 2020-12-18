@@ -1,0 +1,31 @@
+<template>
+  <template if:true={studentsArray}>
+    <lightning-card variant="Narrow" title="Second LWC: Student List Design:">
+      <h1 class="slds-m-around_large">Student List</h1>
+      <template for:each={studentsArray} for:item="stuArr">
+        <div key={stuArr.Id}>
+          <lightning-card
+            variant="Narrow"
+            title={stuArr.FullName}
+            icon-name="custom:custom1"
+          >
+            <lightning-button
+              class="slds-m-around_large"
+              variant="success"
+              slot="actions"
+              label="Details"
+              onclick={handleClick}
+            ></lightning-button>
+            <p class="slds-m-around_large">Residence in : {stuArr.City__c}</p>
+          </lightning-card>
+        </div>
+      </template>
+      <p slot="footer" class="slds-absolute-center">Students</p>
+    </lightning-card>
+  </template>
+  <template if:true={error}>
+    <lightning-card variant="Narrow" title="Error" icon-name="custom:custom1">
+      <h1>Error occured : {error}</h1>
+    </lightning-card>
+  </template>
+</template>

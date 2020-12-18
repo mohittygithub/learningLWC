@@ -1,0 +1,18 @@
+<template>
+  <div class="container">
+    <div class="slds-grid slds-gutters slds-wrap justify-center">
+      <template for:each={result} for:item="item">
+        <div class="card" key={item.id}>
+          <img class="card-image" src={item.urlToImage} />
+          <div class="card-text">
+            <span class="date">{item.date}</span>
+            <h2>{item.title}</h2>
+          </div>
+          <div class="div-stats">
+            <a href={item.url} target="blank">Read More...</a>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</template>

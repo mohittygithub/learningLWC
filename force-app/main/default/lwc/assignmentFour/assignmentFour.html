@@ -1,0 +1,26 @@
+<template>
+  <lightning-card
+    variant="Narrow"
+    title="Contacts"
+    icon-name="standard:contact"
+  >
+    <div class="slds-m-around_large">
+      <lightning-combobox
+        name="cities"
+        label="Cities"
+        value={cityName}
+        placeholder="Select A City"
+        options={cities}
+        onchange={handleChange}
+      ></lightning-combobox>
+    </div>
+    <lightning-datatable
+      key-field="id"
+      data={allContacts}
+      show-row-number-column
+      hide-checkbox-column
+      columns={columns}
+    >
+    </lightning-datatable>
+  </lightning-card>
+</template>

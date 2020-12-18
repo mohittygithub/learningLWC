@@ -1,0 +1,15 @@
+li {
+  list-style: none;
+  font-size: 1.05rem;
+}
+.lis {
+  margin: 50px 0 0 0;
+}
+span {
+  font-weight: bold;
+}
+img {
+  height: 200px !important;
+  width: 250px !important;
+  border-radius: 20px;
+}

@@ -1,0 +1,34 @@
+<template>
+  <lightning-card
+    variant="Narrow"
+    title="Parent Component"
+    icon-name="utility:connected_apps"
+  >
+    <div class="slds-m-around--medium slds-grid slds-gutters">
+      <div class="slds-col slds-size_1-of-2">
+        <lightning-combobox
+          name="countries"
+          label="Countries"
+          value={value}
+          options={options}
+          onchange={handleChange}
+        ></lightning-combobox>
+      </div>
+      <div class="slds-col slds-size_1-of-2 slds-m-top_large">
+        <lightning-button
+          variant="brand"
+          label="Show"
+          title="Show"
+          onclick={handleClick}
+        ></lightning-button>
+      </div>
+    </div>
+    <c-assignment-two-child
+      country={country}
+      capital={capital}
+      population={population}
+      president={president}
+      image={image}
+    ></c-assignment-two-child>
+  </lightning-card>
+</template>
